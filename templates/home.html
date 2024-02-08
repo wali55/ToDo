@@ -26,7 +26,6 @@
 <body>
     <div class="container">
         <h3 class="pt-5 text-center">Django ToDo App</h3>
-        {{ tasks.count }}
         <div class="row">
             <h4>My Day</h4>
             <p class="text-muted">{% now "jS F Y" %}</p>
@@ -59,6 +58,7 @@
             <div class="col-md-6 col-lg-6 p-0" style="position: absolute; bottom: 50px;">
                 <!-- To Do Form -->
                 <form action="{% url 'addTask' %}" method="POST">
+                    {% csrf_token %}
                     <div class="form-group">
                         <span style="display: flex;">
                             <input type="text" name="task" class="form-control" placeholder="Add a task">
